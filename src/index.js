@@ -1,10 +1,15 @@
-import { CreateListModal } from './createListModal/CreateListModal.js';
+import { CategorySelectionModal } from './categorySelectionModal/CategorySelectionModal.js';
 
 const body = document.querySelector('body');
+body.appendChild(CategorySelectionModal().makeCategorySelectionModal());
+console.log(CategorySelectionModal());
 
-const createListModal = CreateListModal();
-body.appendChild(createListModal.makeCreateListModal());
-createListModal.startInitialSetup();
+
+
+
+
+
+
 
 
 
