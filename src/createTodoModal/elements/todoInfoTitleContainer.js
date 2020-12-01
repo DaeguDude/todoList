@@ -1,10 +1,10 @@
+import { makeLabelText } from './labelText.js';
+
 const makeTodoinfoTitleContainer = () => {
   const todoinfoContainerTitle = document.createElement('div');
   todoinfoContainerTitle.classList.add('todoinfo-container-title');
 
-  const labelText = document.createElement('div');
-  labelText.classList.add('Label__Text');
-  labelText.innerText = 'TITLE';
+  const labelText = makeLabelText('TITLE');
 
   const todoinfoTitle = document.createElement('div');
   todoinfoTitle.classList.add('todoinfo-title');

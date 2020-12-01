@@ -13,4 +13,6 @@ const CreateListModal = () => {
   }
 }
 
-export { CreateListModal };
+const createListModal = CreateListModal();
+
+export { createListModal };

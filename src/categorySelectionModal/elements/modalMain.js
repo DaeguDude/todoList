@@ -1,5 +1,6 @@
 import { makeIndividualCategory } from './individualCategory.js';
 
+// makes modal main
 const makeModalMain = () => {
   const categorySelectionModalMain = document.createElement('div');
   categorySelectionModalMain.classList.add('categorySelection-modal-main');
@@ -11,7 +12,6 @@ const makeModalMain = () => {
     const item = makeIndividualCategory(category);
     categorySelectionModalMain.appendChild(item);
   })
-
 
   return categorySelectionModalMain;  
 }

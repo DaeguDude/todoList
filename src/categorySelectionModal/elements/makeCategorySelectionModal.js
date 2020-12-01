@@ -3,6 +3,7 @@ import '../css/categorySelectionModal.css'
 import { makeModalMain } from './modalMain.js';
 import { makeModalHeader } from './modalHeader.js';
 
+// Make category selection modal HTML element
 const makeCategorySelectionModal = () => {
   const modal = document.createElement('div');
   modal.classList.add('modal');
@@ -12,14 +13,9 @@ const makeCategorySelectionModal = () => {
   categorySelectionModal.classList.add('categorySelection-modal');
   categorySelectionModal.classList.add('modal-content');
 
+  categorySelectionModal.appendChild(makeModalHeader());
+  categorySelectionModal.appendChild(makeModalMain());
   
-  const categorySelectionModalMain = makeModalMain();
-  const categorySelectionModalHeader = makeModalHeader();
-  
-  categorySelectionModal.appendChild(categorySelectionModalHeader);
-  categorySelectionModal.appendChild(categorySelectionModalMain);
-  
-
   modal.appendChild(categorySelectionModal);
   
   return modal;

@@ -1,12 +1,27 @@
 import { addTodo } from './addTodo.js';
 import { get } from './getElements.js';
 import { closeModal, isOutsideModalContentClicked } from './closeModal.js';
+import { isTitleTextareaEmpty } from './isTitleTextareaEmpty.js';
 
 // Add Todo Btn enable
 const enableAddTodoBtnToAddTodo = () => {
   const addTodoBtn = get.addTodoBtn();
 
-  addTodoBtn.addEventListener('click', addTodo);
+  addTodoBtn.addEventListener('click', () => {
+    if (!isTitleTextareaEmpty()) {
+      addTodo();
+    }
+  });
+}
+
+const enableAddTodoBtnToCloseModal = () => {
+  const addTodoBtn = get.addTodoBtn();
+
+  addTodoBtn.addEventListener('click', () => {
+    if (!isTitleTextareaEmpty()) {
+      closeModal();
+    }
+  })
 }
 
 // Category Selection Btn enable
@@ -28,8 +43,9 @@ const enableWindowToCloseModal = () => {
 
 const startInitialSetup = () => {
   enableAddTodoBtnToAddTodo();
-  enableCategoryBtnToOpenCategorySelectionModal();
+  enableAddTodoBtnToCloseModal();
   enableWindowToCloseModal();
+  enableCategoryBtnToOpenCategorySelectionModal();
 }
 
 

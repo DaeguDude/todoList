@@ -1,3 +1,4 @@
+// makes modal title HTML element
 const makeModalTitle = () => {
   const categorySelectionModalTitle = document.createElement('div');
   categorySelectionModalTitle.classList.add('categorySelection-modal-title');
@@ -6,6 +7,7 @@ const makeModalTitle = () => {
   return categorySelectionModalTitle;
 }
 
+// makes modal header HTML element
 const makeModalHeader = () => {
   const categorySelectionModalHeader = document.createElement('div');
   categorySelectionModalHeader.classList.add('categorySelection-modal-header');
