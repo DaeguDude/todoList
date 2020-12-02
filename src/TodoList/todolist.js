@@ -1,3 +1,6 @@
+import { getPriorityAsNumber } from './getPriorityAsNumber.js';
+import { isSameTodo } from './isSameTodo.js';
+
 const TodoList = () => {
 
   const _todos = {
@@ -21,17 +24,15 @@ const TodoList = () => {
   }
 
   const deleteTodo = (todoToFind) => {
-    // Iterate every todos in _todos, if found, remove it.
-    for (const [category, todos] of Object.entries(_todos)) {
-      const todosLength = todos.length;
-      for (let i = 0; i < todos.length; i++) {
-        const currentTodo = todos[i];
-        const sameObjects = Object.is(todoToFind, currentTodo);
-        if (sameObjects) {
-          todos.splice(i, 1);;
-          return;
-        } 
-      }  
+    const categoryOfTodo = todoToFind.getCategory();
+    const todos = getTodosByCategory(categoryOfTodo);
+
+    for (let i = 0; i < todos.length; i++) {
+      const currentTodo = todos[i];
+      if (isSameTodo(currentTodo, todoToFind)) {
+        todos.splice(i, 1);;
+        return;
+      }
     }
   }
 
@@ -50,7 +51,7 @@ const TodoList = () => {
     return allTodos;
   }
 
-  const getTodos = (category) => {
+  const getTodosByCategory = (category) => {
     return _todos[category];
   }
 
@@ -59,7 +60,7 @@ const TodoList = () => {
     return categories;
   }
 
-  const sortTodosDueDate = (todos) => {
+  const sortTodosByDueDate = (todos) => {
     todos.sort((todoOne, todoTwo) => {
       const todoOneDueDate = todoOne.getDueDate();
       const todoTwoDueDate = todoTwo.getDueDate();
@@ -68,58 +69,19 @@ const TodoList = () => {
     });
   }
 
-  /**
-   * ------------------------------------------------------------------
-   * THIS NEEDS TO BE FIXED. 
-   * IT'S WORKING. BUT VERY INEFFICIENT CODE
-   * ------------------------------------------------------------------
-   */
-  const sortTodosPriority = (todos) => {
-    
-    const IMPORTANT = 1;
-    const HIGH = 2;
-    const MIDDLE = 3;
-    const LOW = 4;
-
-    todos.sort((todoOne, todoTwo) => {
+  const sortTodosByPriority = (todos) => {
+    todos.sort(function comparePriority(todoOne, todoTwo) {
       let todoOnePriority = todoOne.getPriority();
       let todoTwoPriority = todoTwo.getPriority();
-      
-      switch (todoOnePriority) {
-        case "important":
-          todoOnePriority = IMPORTANT;
-          break;
-        case "high":
-          todoOnePriority = HIGH;
-          break;
-        case "middle":
-          todoOnePriority = MIDDLE;
-          break;
-        case "low":
-          todoOnePriority = LOW;
-          break;
-      }
 
-      switch (todoTwoPriority) {
-        case "important":
-          todoTwoPriority = IMPORTANT;
-          break;
-        case "high":
-          todoTwoPriority = HIGH;
-          break;
-        case "middle":
-          todoTwoPriority = MIDDLE;
-          break;
-        case "low":
-          todoTwoPriority = LOW;
-          break;
-      }
-        
+      todoOnePriority = getPriorityAsNumber(todoOnePriority);
+      todoTwoPriority = getPriorityAsNumber(todoTwoPriority);
+      
       return todoOnePriority - todoTwoPriority;
     });
   }
 
-  const sortTodosCreatedDate = (todos) => {
+  const sortTodosByCreatedDate = (todos) => {
     todos.sort((todoOne, todoTwo) => {
       const todoOneCreatedDate = todoOne.getCreatedDate();
       const todoTwoCreatedDate = todoTwo.getCreatedDate();
@@ -132,7 +94,11 @@ const TodoList = () => {
   return {
     _todos,
     addTodo, addNewCategory, deleteTodo, deleteCategory,
-    getTodos, getAllTodos, getAllCategories,
-    sortTodosDueDate, sortTodosCreatedDate, sortTodosPriority
+    getTodosByCategory, getAllTodos, getAllCategories,
+    sortTodosByDueDate, sortTodosByCreatedDate, sortTodosByPriority
   }
 }
+
+const todoList = TodoList();
+
+export { todoList };
