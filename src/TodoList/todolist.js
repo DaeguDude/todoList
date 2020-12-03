@@ -1,5 +1,5 @@
 import { getPriorityAsNumber } from './getPriorityAsNumber.js';
-import { isSameTodo } from './isSameTodo.js';
+import { isSameObject } from './isSameTodo.js';
 
 const TodoList = () => {
 
@@ -29,7 +29,7 @@ const TodoList = () => {
 
     for (let i = 0; i < todos.length; i++) {
       const currentTodo = todos[i];
-      if (isSameTodo(currentTodo, todoToFind)) {
+      if (isSameObject(currentTodo, todoToFind)) {
         todos.splice(i, 1);;
         return;
       }

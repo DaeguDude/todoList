@@ -1,5 +1,5 @@
-const isSameTodo = (todoOne, todoTwo) => {
-  return Object.is(todoOne, todoTwo);
+const isSameObject = (objectOne, objectTwo) => {
+  return Object.is(objectOne, objectTwo);
 }
 
-export { isSameTodo };
+export { isSameObject };
