@@ -1,9 +1,11 @@
+import { getToday } from '../date/getToday.js';
+
 const Todo = (title, description, category) => {
   let _title = title;
   let _description = description;
   let _category = category;
   let _dueDate = '';
-  let _createdDate = '';
+  let _createdDate = getToday();
   let _priority = '';
   let _completed = false;
 
@@ -26,9 +28,9 @@ const Todo = (title, description, category) => {
     _dueDate = dueDate;
   }
 
-  const setCreatedDate = (createdDate) => {
-    _createdDate = createdDate;
-  }
+  // const setCreatedDate = (createdDate) => {
+  //   _createdDate = createdDate;
+  // }
 
   const setPriority = (priority) => {
     _priority = priority;
@@ -82,7 +84,7 @@ const Todo = (title, description, category) => {
 
   
   return {
-    setTitle, setDescription, setCategory, setDueDate, setCreatedDate, setPriority,
+    setTitle, setDescription, setCategory, setDueDate, setPriority,
     getTitle, getDescription, getCategory, getCreatedDate, getPriority, getDueDate,
     isCompleted, markCompleted, undoCompleted
   }

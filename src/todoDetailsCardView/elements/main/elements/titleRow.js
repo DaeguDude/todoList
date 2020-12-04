@@ -1,6 +1,6 @@
 import { makeLabelText } from './labelText.js';
 
-const makeTitleRow = () => {
+const makeTitleRow = (title) => {
   const titleRow = document.createElement('div');
   titleRow.classList.add('TodoEdit-main-titleRow', 'TodoEdit-padder');
   
@@ -9,6 +9,7 @@ const makeTitleRow = () => {
   const titleTextArea = document.createElement('textarea');
   titleTextArea.classList.add('textField', 'TodoEdit-title-textfield');
   titleTextArea.setAttribute('rows', '1');
+  titleTextArea.innerText = title;
 
 
   titleRow.appendChild(labelText);
