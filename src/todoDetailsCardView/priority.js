@@ -25,17 +25,20 @@ const isPriorityAlreadySet = () => {
 const selectPriorityBtn = (event) => {
   const clickedBtn = event.target;
   
-  if (isPriorityAlreadySet()) {
-    const selectedBtn = get.selectedPriorityBtn();
-    if (isSameButton(clickedBtn, selectedBtn)) {
-      clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
-    } else {
-      selectedBtn.classList.remove(selectedBtn.innerText + '-selected');
-      clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
-    }
-  } else {
-    clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
+  // If it passes this line, it means priority is set
+  if (!isPriorityAlreadySet()) {
+    return clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
   }
+
+  // If it passes this line, it means they are same button
+  const selectedBtn = get.selectedPriorityBtn();
+  if (!isSameButton(clickedBtn, selectedBtn)) {
+    selectedBtn.classList.remove(selectedBtn.innerText + '-selected');
+    clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
+    return;
+  }
+
+  clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
 }
 
 const enableButtonsToBeSelected = () => {

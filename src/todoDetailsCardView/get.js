@@ -1,3 +1,11 @@
+const isEmpty = (str) => {
+  if (str === '') {
+    return true;
+  }
+
+  return false;
+}
+
 const Get = () => {
   const importantBtn = () => {
     return document.querySelector('#priority-important-btn');
@@ -26,12 +34,12 @@ const Get = () => {
   const todoPriority = () => {
     const selectedBtn = selectedPriorityBtn();
     
-    if (selectedBtn != '') {
-      const priority = selectedBtn.innerText;
-      return priority;
+    if (isEmpty(selectedBtn)) {
+      return '';
     }
 
-    return '';
+    const priority = selectedBtn.innerText;
+    return priority;
   }
   
   const todoDueDate = () => {
@@ -49,14 +57,17 @@ const Get = () => {
   const selectedPriorityBtn = () => {
     const classes = ['important-selected', 'high-selected', 'middle-selected',
   'low-selected'];  
-    const buttons = get.allPriorityBtns();
+    const priorityBtns = get.allPriorityBtns();
 
-    for (let i = 0; i < classes.length; i++) {
-      const btn = document.querySelector('.' + classes[i]);
-      if (btn != null) {
-        return btn;
+    for (let i = 0; i < priorityBtns.length; i++) {
+      const priorityBtn = priorityBtns[i];
+      const priorityBtnClass = priorityBtn.className;
+      if (priorityBtnClass.includes('selected')) {
+        return priorityBtn;
       }
     }
+
+    return '';
   }
 
   return {
