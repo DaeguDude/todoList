@@ -19,8 +19,50 @@ const Get = () => {
     return document.querySelectorAll('.priority-tag');
   }
 
+  const title = () => {
+    return document.querySelector('.TodoEdit-main-titleRow textarea').value;
+  }
+
+  const priority = () => {
+    const selectedBtn = selectedPriorityBtn();
+    
+    if (selectedBtn != '') {
+      const priority = selectedBtn.innerText;
+      return priority;
+    }
+
+    return '';
+  }
+  
+  const dueDate = () => {
+    return document.querySelector('#TodoEdit-DueDate').value;
+  }
+  
+  const description = () => {
+    return document.querySelector('.TodoEdit-main-DescriptionRow textarea').value;
+  }
+  
+  const createdDate = () => {
+    return document.querySelector('.TodoEdit-CreatedDate').innerText;
+  }
+
+  const selectedPriorityBtn = () => {
+    const classes = ['important-selected', 'high-selected', 'middle-selected',
+  'low-selected'];  
+    const buttons = get.allPriorityBtns();
+
+    for (let i = 0; i < classes.length; i++) {
+      const btn = document.querySelector('.' + classes[i]);
+      if (btn != null) {
+        return btn;
+      }
+    }
+  }
+
   return {
-    importantBtn,highBtn,middleBtn,lowBtn, allPriorityBtns
+    importantBtn,highBtn,middleBtn,lowBtn, allPriorityBtns, title,
+    priority, dueDate, description, createdDate,
+    selectedPriorityBtn
   }
 }
 

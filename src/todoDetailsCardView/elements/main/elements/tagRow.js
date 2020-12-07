@@ -1,23 +1,38 @@
 import { makeLabelText } from './labelText.js';
 
-const capitalizeFirstLetter = (str) => {
-  const capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1)
-  return capitalizedStr;
+const isEmpty = (str) => {
+  if (str === '') {
+    return true;
+  }
+
+  return false;
 }
 
-const makePriorityBtn = (importance) => {
+const isPrioritySet = (priority) => {
+  if (isEmpty(priority)) {
+    return false;
+  }
+
+  return true;
+}
+
+const makePriorityBtn = (importance, selected) => {
   const priorityBtn = document.createElement('button');
   const id = `priority-${importance}-btn`;
   priorityBtn.setAttribute('id', id);
-  // innertext of btn has 'Importance', not 'impmortance'
-  priorityBtn.innerText = capitalizeFirstLetter(importance);
+  
+  priorityBtn.innerText = importance;
 
-  priorityBtn.classList.add('priority-tag', 'priority-btns-not-selected');
+  priorityBtn.classList.add('priority-tag');
+
+  if (selected === true) {
+    priorityBtn.classList.add(importance + '-selected');
+  }
 
   return priorityBtn;
 }
 
-const makeTagRow = () => {
+const makeTagRow = (priority) => {
   const tagRow = document.createElement('div');
   tagRow.classList.add('TodoEdit-main-tagRow', 'TodoEdit-padder');
 
@@ -28,10 +43,17 @@ const makeTagRow = () => {
   tagRow.appendChild(labelText);
   tagRow.appendChild(tags);
 
-  tags.appendChild(makePriorityBtn('important'));
-  tags.appendChild(makePriorityBtn('high'));
-  tags.appendChild(makePriorityBtn('middle'));
-  tags.appendChild(makePriorityBtn('low'));
+  const priorities = ['important', 'high', 'middle', 'low'];
+  if (isPrioritySet(priority)) {
+    // when making a button, give that button color
+    priorities.forEach(eachPriority => {
+      if (eachPriority === priority) {
+        tags.appendChild(makePriorityBtn(eachPriority, true));
+      } else {
+        tags.appendChild(makePriorityBtn(eachPriority));
+      } 
+    })
+  }
 
   return tagRow;
 }

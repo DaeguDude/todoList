@@ -181,16 +181,16 @@ textarea {
   transform: scale(0.95)
 }
 
-.important-btn-selected {
+.important-selected {
   background-color: #EA3232;
 }
-.high-btn-selected {
+.high-selected {
   background-color: #FCBA3A;
 }
-.middle-btn-selected {
+.middle-selected {
   background-color: #50b767;
 }
-.low-btn-selected {
+.low-selected {
   background-color: #a6a6a6;
 }
 
