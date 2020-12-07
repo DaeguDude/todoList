@@ -5,9 +5,9 @@ import { todoDetailsCardView } from './todoDetailsCardView/todoDetailsCardView.j
 
 import { Todo } from './Todo/todo.js';
 import { todoList } from './TodoList/todolist.js';
-import { enableButtonsToBeSelected } from './todoDetailsCardView/priority.js';
+
 import { getToday } from './date/getToday.js';
-import { changeTodoDetails } from './todoDetailsCardView/changeTodoDetails.js';
+
 
 
 const myTodo = Todo('Going to Jiujitsu', 'Today is the day I go');
@@ -18,9 +18,7 @@ myTodo.setDueDate('2020-05-20');
 const body = document.querySelector('body');
 body.appendChild(todoDetailsCardView.makeTodoDetailsCardView(myTodo));
 
-enableButtonsToBeSelected();
-
-changeTodoDetails();
+todoDetailsCardView.startInitialSetup();
 
 
 

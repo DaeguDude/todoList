@@ -8,27 +8,42 @@ const isSameButton = (buttonOne, buttonTwo) => {
   return false;
 }
 
-const enableButtonsToBeSelected = () => {
-  const buttons = get.allPriorityBtns();
+const isPriorityAlreadySet = () => {
   
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const selectedBtn = get.selectedPriorityBtn();
-      const clickedBtn = button;
+  const priorityBtns = get.allPriorityBtns();
+  const classNames = [];
 
-      console.log({selectedBtn});
-      console.log({clickedBtn});
-      if (isSameButton(selectedBtn, clickedBtn)) {
-        const priority = selectedBtn.innerText;
-        console.log(priority + '-selected');
-        selectedBtn.classList.remove(priority + '-selected');
-      }
+  for(let i = 0; i < priorityBtns.length; i++) {
+    if (priorityBtns[i].className.includes('selected')) {
+      return true;
+    }
+  }
 
-      clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
-   })
-  })
+  return false;
 }
 
+const selectPriorityBtn = (event) => {
+  const clickedBtn = event.target;
+  
+  if (isPriorityAlreadySet()) {
+    const selectedBtn = get.selectedPriorityBtn();
+    if (isSameButton(clickedBtn, selectedBtn)) {
+      clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
+    } else {
+      selectedBtn.classList.remove(selectedBtn.innerText + '-selected');
+      clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
+    }
+  } else {
+    clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
+  }
+}
 
+const enableButtonsToBeSelected = () => {
+  const priorityBtns = get.allPriorityBtns();
+  
+  priorityBtns.forEach(priorityBtn => {
+    priorityBtn.addEventListener('click', selectPriorityBtn);
+  });
+}
 
 export { enableButtonsToBeSelected }

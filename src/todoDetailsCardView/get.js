@@ -19,11 +19,11 @@ const Get = () => {
     return document.querySelectorAll('.priority-tag');
   }
 
-  const title = () => {
+  const todoTitle = () => {
     return document.querySelector('.TodoEdit-main-titleRow textarea').value;
   }
 
-  const priority = () => {
+  const todoPriority = () => {
     const selectedBtn = selectedPriorityBtn();
     
     if (selectedBtn != '') {
@@ -34,15 +34,15 @@ const Get = () => {
     return '';
   }
   
-  const dueDate = () => {
+  const todoDueDate = () => {
     return document.querySelector('#TodoEdit-DueDate').value;
   }
   
-  const description = () => {
+  const todoDescription = () => {
     return document.querySelector('.TodoEdit-main-DescriptionRow textarea').value;
   }
   
-  const createdDate = () => {
+  const todoCreatedDate = () => {
     return document.querySelector('.TodoEdit-CreatedDate').innerText;
   }
 
@@ -60,8 +60,8 @@ const Get = () => {
   }
 
   return {
-    importantBtn,highBtn,middleBtn,lowBtn, allPriorityBtns, title,
-    priority, dueDate, description, createdDate,
+    importantBtn,highBtn,middleBtn,lowBtn, allPriorityBtns, todoTitle,
+    todoPriority, todoDueDate, todoDescription, todoCreatedDate,
     selectedPriorityBtn
   }
 }
