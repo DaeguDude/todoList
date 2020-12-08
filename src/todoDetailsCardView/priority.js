@@ -9,9 +9,7 @@ const isSameButton = (buttonOne, buttonTwo) => {
 }
 
 const isPriorityAlreadySet = () => {
-  
   const priorityBtns = get.allPriorityBtns();
-  const classNames = [];
 
   for(let i = 0; i < priorityBtns.length; i++) {
     if (priorityBtns[i].className.includes('selected')) {

@@ -1,6 +1,6 @@
 import { get } from './get.js';
 
-const changeTodoDetails = () => {
+const setTodoDetails = () => {
   const title = get.todoTitle();
   const priority = get.todoPriority();
   const dueDate = get.todoDueDate();
@@ -10,4 +10,4 @@ const changeTodoDetails = () => {
   // Change todo Details man :)
 }
 
-export { changeTodoDetails }
+export { setTodoDetails }
