@@ -120,6 +120,27 @@ a {
   font-size: var(--textField-description-font-size);
 }
 
+/* Modal */
+
+.modal {
+  position: absolute;
+  z-index: 100; /* Sit on top */
+
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* LANDING PAGE */
 
 .container {

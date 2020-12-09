@@ -10,9 +10,9 @@ const enableCheckMarkers = () => {
 
   checkMarkers.forEach(checkMarker => {
     checkMarker.addEventListener('click', () => {
-      const todoItem = get.todoItemOfCheckMarker(checkMarker);
+      const todoItem = get.todoItemOfElement(checkMarker);
       const category = get.currentCategory();
-      const todoListMainRow = get.todoListMainRowOfCheckMarker(checkMarker);
+      const todoListMainRow = get.todoListMainRowOfElement(checkMarker);
       const todoNumber = get.todoNumber(todoListMainRow);
       const todo = todoList.getTodoByNumber(todoNumber, category);
       

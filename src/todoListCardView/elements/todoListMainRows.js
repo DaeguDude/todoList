@@ -1,3 +1,5 @@
+import { enableDeleteButton } from "../deleteButton";
+
 const makeEmptyCheckMarker = () => {
   const emptyCheckMark = document.createElement('i');
   emptyCheckMark.classList.add('far', 'fa-circle', 'check-marker');
@@ -62,7 +64,9 @@ const makeTodoItem = (todo) => {
 
   if (completed) {
     todoItem.classList.add('TodoItem-checked');
-    todoItem.appendChild(makeDeleteBtn());
+    const deleteBtn = makeDeleteBtn();
+    enableDeleteButton(deleteBtn);
+    todoItem.appendChild(deleteBtn);
   }
 
   return todoItem;

@@ -3,12 +3,16 @@ const Get = () => {
     return document.querySelectorAll('.check-marker');
   }
 
-  const todoItemOfCheckMarker = (checkMarker) => {
+  const allTodoListMainRows = () => {
+    return document.querySelectorAll('.TodoList-main-rows');
+  }
+
+  const todoItemOfElement = (checkMarker) => {
     return checkMarker.closest('.TodoItem');
   }
 
-  const todoListMainRowOfCheckMarker = (checkMarker) => {
-    return checkMarker.closest('.TodoList-main-rows');
+  const todoListMainRowOfElement = (elem) => {
+    return elem.closest('.TodoList-main-rows');
   }
 
   const header = () => {
@@ -18,6 +22,10 @@ const Get = () => {
   const currentCategory = () => {
     return header().innerText;
   }
+  
+  const todoListMain = () => {
+    return document.querySelector('.TodoList-CardView-main');
+  }
 
   const todoNumber = (todoListMainRow) => {
     return todoListMainRow.getAttribute('data-todo-number');
@@ -25,10 +33,13 @@ const Get = () => {
 
   return {
     allCheckMarkers,
-    todoItemOfCheckMarker,
-    todoListMainRowOfCheckMarker,
+    allTodoListMainRows,
+    todoItemOfElement,
+    todoListMainRowOfElement,
     currentCategory,
-    todoNumber
+    todoNumber,
+    todoListMain
+    
   }
 }
 

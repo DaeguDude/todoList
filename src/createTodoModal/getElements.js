@@ -19,12 +19,19 @@ const Get = () => {
     return document.querySelector('#createTodo');
   }
 
+  const container = () => {
+    return document.querySelector('.container');
+  }
+
+
+
   return {
     addTodoBtn,
     titleTextarea,
     descriptionTextarea,
     categoryBtn,
-    modal
+    modal,
+    container
   }
 }
 

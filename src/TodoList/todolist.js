@@ -23,17 +23,10 @@ const TodoList = () => {
     _todos[category] = [];
   }
 
-  const deleteTodo = (todoToFind) => {
-    const categoryOfTodo = todoToFind.getCategory();
-    const todos = getTodosByCategory(categoryOfTodo);
-
-    for (let i = 0; i < todos.length; i++) {
-      const currentTodo = todos[i];
-      if (isSameObject(currentTodo, todoToFind)) {
-        todos.splice(i, 1);;
-        return;
-      }
-    }
+  const deleteTodoByNumber = (todoNumber, category) => {
+    const todos = getTodosByCategory(category);
+    todos.splice(todoNumber, 1);
+    console.log(todos);
   }
 
   const deleteCategory = (category) => {
@@ -98,7 +91,7 @@ const TodoList = () => {
 
   return {
     _todos,
-    addTodo, addNewCategory, deleteTodo, deleteCategory,
+    addTodo, addNewCategory, deleteTodoByNumber, deleteCategory,
     getTodosByCategory, getAllTodos, getAllCategories, getTodoByNumber,
     sortTodosByDueDate, sortTodosByCreatedDate, sortTodosByPriority
   }
