@@ -7,9 +7,28 @@ const Get = () => {
     return checkMarker.closest('.TodoItem');
   }
 
+  const todoListMainRowOfCheckMarker = (checkMarker) => {
+    return checkMarker.closest('.TodoList-main-rows');
+  }
+
+  const header = () => {
+    return document.querySelector('.TodoList-CardView-header');
+  }
+
+  const currentCategory = () => {
+    return header().innerText;
+  }
+
+  const todoNumber = (todoListMainRow) => {
+    return todoListMainRow.getAttribute('data-todo-number');
+  }
+
   return {
     allCheckMarkers,
-    todoItemOfCheckMarker
+    todoItemOfCheckMarker,
+    todoListMainRowOfCheckMarker,
+    currentCategory,
+    todoNumber
   }
 }
 

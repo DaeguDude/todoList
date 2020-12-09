@@ -55,6 +55,11 @@ const TodoList = () => {
     return _todos[category];
   }
 
+  const getTodoByNumber = (todoNumber, category) => {
+    const todos = getTodosByCategory(category);
+    return todos[todoNumber];
+  }
+
   const getAllCategories = () => {
     const categories = Object.keys(_todos);
     return categories;
@@ -94,7 +99,7 @@ const TodoList = () => {
   return {
     _todos,
     addTodo, addNewCategory, deleteTodo, deleteCategory,
-    getTodosByCategory, getAllTodos, getAllCategories,
+    getTodosByCategory, getAllTodos, getAllCategories, getTodoByNumber,
     sortTodosByDueDate, sortTodosByCreatedDate, sortTodosByPriority
   }
 }
