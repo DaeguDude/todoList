@@ -12,7 +12,6 @@ const isOutsideModalContentClicked = (event) => {
 }
 
 const closeModal = () => {
-  console.log('yo');
   const modal = get.modal();
   modal.remove();
 }
