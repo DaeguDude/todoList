@@ -2,7 +2,6 @@ import { get } from './getElements.js';
 
 const isOutsideModalContentClicked = (event) => {
   const clickedTarget = event.target;
-  console.log(clickedTarget);
   const modal = get.modal();
   
   if (clickedTarget === modal) {

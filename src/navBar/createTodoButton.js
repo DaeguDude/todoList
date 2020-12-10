@@ -6,7 +6,8 @@ const getCreateTodoBtn = () => {
 
 const enableCreateTodoBtn = () => {
   const createTodoBtn = getCreateTodoBtn();
-  createTodoBtn.addEventListener('click', () => {
+  createTodoBtn.addEventListener('click', (event) => {
+    event.stopPropagation();
     createTodoModal.openModal();
     createTodoModal.startInitialSetup();
   });
