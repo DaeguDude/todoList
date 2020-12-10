@@ -31,6 +31,10 @@ const Get = () => {
     return todoListMainRow.getAttribute('data-todo-number');
   }
 
+  const todoListCardView = () => {
+    return document.querySelector('.TodoList-CardView');
+  }
+
   return {
     allCheckMarkers,
     allTodoListMainRows,
@@ -38,7 +42,8 @@ const Get = () => {
     todoListMainRowOfElement,
     currentCategory,
     todoNumber,
-    todoListMain
+    todoListMain,
+    todoListCardView
     
   }
 }

@@ -1,22 +1,29 @@
 import { makeTodoListCardView } from './elements/makeTodoListCardView.js';
 import { startInitialSetup } from './startInitialSetup.js';
-import { makeTodoListMainRows} from './elements/todoListMainRows.js';
+import { isTodoListCardViewExist } from './isCompleted.js';
 import { get } from './get.js';
-import { updateDataTodoNumber } from './deleteButton.js';
 
-const addTodo = (todo) => {
-  const todoListMainRow = makeTodoListMainRows(todo);
-  const todoListMain = get.todoListMain();
-  todoListMain.appendChild(todoListMainRow);
-  updateDataTodoNumber(get.allTodoListMainRows());
+const deleteTodoListCardView = () => {
+  const todoListCardView = get.todoListCardView();
+  todoListCardView.remove();
+}
+
+const showTodoListCardView = (category) => {
+  if(isTodoListCardViewExist()) {
+    deleteTodoListCardView();
+  }
+
+  const todoListCardView = makeTodoListCardView(category);
+
+  const cardViewContainer = document.querySelector('.CardView-Container');
+  cardViewContainer.appendChild(todoListCardView);
 }
 
 const TodoListCardView = () => {
   
   return {
-    makeTodoListCardView,
     startInitialSetup,
-    addTodo
+    showTodoListCardView
   }
 }
 

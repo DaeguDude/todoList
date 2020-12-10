@@ -61,15 +61,15 @@ todoList.addTodo(myTodo2);
 // todoList.addTodo(myTodo6);
 // todoList.addTodo(myTodo7);
 
-const cardViewContainer = document.querySelector('.CardView-Container');
+
 
 const category = 'jiujitsu';
-cardViewContainer.appendChild(todoListCardView.makeTodoListCardView(category))
+todoListCardView.showTodoListCardView(category);
 
 todoListCardView.startInitialSetup();
 
 navBar.startInitialSetup();
-
+navBar.showCategories();
 
 
 
