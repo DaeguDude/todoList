@@ -1,15 +1,15 @@
 import { createTodoModal } from '../createTodoModal/CreateTodoModal.js';
+import { get } from './get.js'
 
-const getCreateTodoBtn = () => {
-  return document.querySelector('#createTodoBtn');
+const openCreateTodoModal = (event) => {
+  createTodoModal.openModal();
 }
 
 const enableCreateTodoBtn = () => {
-  const createTodoBtn = getCreateTodoBtn();
+  const createTodoBtn = get.createTodoBtn();
   createTodoBtn.addEventListener('click', (event) => {
     event.stopPropagation();
-    createTodoModal.openModal();
-    createTodoModal.startInitialSetup();
+    openCreateTodoModal();
   });
 }
 

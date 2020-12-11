@@ -5,10 +5,15 @@ import { makeCreateListModal } from './elements/makeCreateListModal.js';
 import { addCategory } from './addCategory.js';
 import { get } from './getElements.js';
 
+const openModal = () => {
+  const container = get.container();
+  container.appendChild(makeCreateListModal());
+}
+
 const CreateListModal = () => {  
 
   return {
-    makeCreateListModal,
+    openModal,
     startInitialSetup,
   }
 }

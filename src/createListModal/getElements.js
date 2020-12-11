@@ -15,11 +15,16 @@ const Get = () => {
     return document.querySelector('#createList');
   }
 
+  const container = () => {
+    return document.querySelector('.container');
+  }
+
   return {
     createBtn,
     cancelBtn,
     titleTextarea,
-    modal
+    modal,
+    container
   }
 }
 

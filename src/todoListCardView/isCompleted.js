@@ -9,7 +9,7 @@ const isCompletedMarker = (checkMarker) => {
 }
 
 const isTodoListCardViewExist = () => {
-  if(get.todoListCardView() != null) {
+  if (get.todoListCardView() != null) {
     return true;
   }
 

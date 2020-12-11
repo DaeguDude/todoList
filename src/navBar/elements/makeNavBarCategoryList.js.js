@@ -1,4 +1,5 @@
 import { enableCategoryItemToShowTodos } from '../categoryItem.js';
+import { todoList } from '../../TodoList/todolist.js';
 
 const makeCategoryItem = (category) => {
   const categoryItem = document.createElement('li');
@@ -8,13 +9,13 @@ const makeCategoryItem = (category) => {
   return categoryItem;
 }
 
-const makeNavBarCategoryList = (categories) => {
+const makeNavBarCategoryList = () => {
   const navBarCategoryList = document.createElement('ul');
   navBarCategoryList.classList.add('navbar-category-list');
 
+  const categories = todoList.getAllCategories();
   categories.forEach(category => {
     const categoryItem = makeCategoryItem(category);
-    enableCategoryItemToShowTodos(categoryItem);
     navBarCategoryList.appendChild(categoryItem);
   })
 

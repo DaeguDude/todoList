@@ -1,29 +1,41 @@
 import { get } from './get.js';
 import { todoListCardView } from './todoListCardView.js';
 import { isCompletedMarker } from './isCompleted.js'
-import { markCompleted } from './markCompleted.js';
-import { undoCompleted } from './undoCompleted.js';
+import { markCompletedDisplay } from './markCompleted.js';
+import { undoCompletedDisplay } from './undoCompleted.js';
 import { todoList } from '../TodoList/todolist.js';
 
+const markCompleted = (todo, todoDisplay) => {
+  todo.markCompleted();
+  markCompletedDisplay(todoDisplay);
+}
+
+const undoCompleted = (todo, todoDisplay) => {
+  todo.undoCompleted();
+  undoCompletedDisplay(todoDisplay);
+}
+
+const toggleCompleted = (event) => {
+  // SRP: toggle the completed status
+  const checkMarker = event.target;
+  
+  const todoDisplay = get.todoItemOfElement(checkMarker);
+  const category = get.currentCategory();
+  const todoNumber = get.todoNumber(todoDisplay);
+  const todo = todoList.getTodoByNumber(todoNumber, category);
+  
+  if (isCompletedMarker(checkMarker)) {
+    return undoCompleted(todo, todoDisplay);
+  }
+
+  markCompleted(todo, todoDisplay);
+}
+
 const enableCheckMarkers = () => {
-  const checkMarkers = get.allCheckMarkers()// get check marker
+  const checkMarkers = get.allCheckMarkers();
 
   checkMarkers.forEach(checkMarker => {
-    checkMarker.addEventListener('click', () => {
-      const todoItem = get.todoItemOfElement(checkMarker);
-      const category = get.currentCategory();
-      const todoListMainRow = get.todoListMainRowOfElement(checkMarker);
-      const todoNumber = get.todoNumber(todoListMainRow);
-      const todo = todoList.getTodoByNumber(todoNumber, category);
-      
-      if (isCompletedMarker(checkMarker)) {
-        todo.undoCompleted();
-        return undoCompleted(todoItem);
-      } 
-      
-      todo.markCompleted();
-      markCompleted(todoItem);  
-    })
+    checkMarker.addEventListener('click', toggleCompleted);
   })
 }
 

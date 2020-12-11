@@ -27,12 +27,17 @@ const Get = () => {
     return document.querySelector('.TodoList-CardView-main');
   }
 
-  const todoNumber = (todoListMainRow) => {
-    return todoListMainRow.getAttribute('data-todo-number');
+  const todoNumber = (todoItem) => {
+    const todoItemContainer = todoItem.closest('.TodoList-main-rows');
+    return todoItemContainer.getAttribute('data-todo-number');
   }
 
   const todoListCardView = () => {
     return document.querySelector('.TodoList-CardView');
+  }
+
+  const cardViewContainer = () => {
+    return document.querySelector('.CardView-Container');
   }
 
   return {
@@ -43,8 +48,8 @@ const Get = () => {
     currentCategory,
     todoNumber,
     todoListMain,
-    todoListCardView
-    
+    todoListCardView,
+    cardViewContainer
   }
 }
 

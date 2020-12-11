@@ -9,13 +9,13 @@ const deleteTodoListCardView = () => {
 }
 
 const showTodoListCardView = (category) => {
-  if(isTodoListCardViewExist()) {
+  if (isTodoListCardViewExist()) {
     deleteTodoListCardView();
   }
 
   const todoListCardView = makeTodoListCardView(category);
 
-  const cardViewContainer = document.querySelector('.CardView-Container');
+  const cardViewContainer = get.cardViewContainer();
   cardViewContainer.appendChild(todoListCardView);
 }
 

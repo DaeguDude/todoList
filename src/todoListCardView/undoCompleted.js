@@ -9,7 +9,7 @@ const changeToNotCompletedMarker = (todoItem) => {
   checkMarker.id = 'notCompletedMarker';
 }
 
-const removeDeleteBtn = (todoItem) => {
+const deleteDeleteBtn = (todoItem) => {
   const deleteBtn = todoItem.querySelector('.TodoItem-delete-btn');
   deleteBtn.remove();
 }
@@ -18,11 +18,11 @@ const brightenTodoItem = (todoItem) => {
   todoItem.classList.remove('TodoItem-checked');
 }
 
-const undoCompleted = (todoItem) => {
+const undoCompletedDisplay = (todoItem) => {
   brightenTodoItem(todoItem);
   changeToNotCompletedMarker(todoItem);
   unStrikeThroughTitle(todoItem);
-  removeDeleteBtn(todoItem);
+  deleteDeleteBtn(todoItem);
 }
 
-export { undoCompleted };
+export { undoCompletedDisplay };

@@ -69,7 +69,7 @@ todoListCardView.showTodoListCardView(category);
 todoListCardView.startInitialSetup();
 
 navBar.startInitialSetup();
-navBar.showCategories();
+
 
 
 

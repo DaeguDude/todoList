@@ -28,11 +28,11 @@ const darkenTodoItem = (todoItem) => {
   todoItem.classList.add('TodoItem-checked');
 }
 
-const markCompleted = (todoItem) => {
+const markCompletedDisplay = (todoItem) => {
   darkenTodoItem(todoItem);
   changeToCompletedMarker(todoItem);
   strikeThroughTitle(todoItem);
   addDeleteBtn(todoItem);
 }
 
-export { markCompleted };
+export { markCompletedDisplay };

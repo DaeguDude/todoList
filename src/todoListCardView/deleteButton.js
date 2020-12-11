@@ -1,9 +1,11 @@
 import { get } from './get.js';
 import { todoList } from '../TodoList/todolist.js';
 
+const getTodo = (deleteBtn) => {
+  return get.todoListMainRowOfElement(deleteBtn)
+}
 
-const deleteTodo = (deleteBtn) => {
-  const todo = get.todoListMainRowOfElement(deleteBtn)
+const deleteTodo = (todo) => {
   todo.remove();
 }
 
@@ -15,11 +17,11 @@ const updateDataTodoNumber = (todoListMainRows) => {
 
 const enableDeleteButton = (deleteBtn) => {
   deleteBtn.addEventListener('click', () => {
+    const todo = getTodo(deleteBtn);
+    deleteTodo(todo);
     
-    deleteTodo(deleteBtn);
-
-    const todoListMainRow = get.todoListMainRowOfElement(deleteBtn);
-    const todoNumber = get.todoNumber(todoListMainRow);
+    const todoDisplay = get.todoItemOfElement(deleteBtn);
+    const todoNumber = get.todoNumber(todoDisplay);
     const category = get.currentCategory();
     todoList.deleteTodoByNumber(todoNumber, category);
 
