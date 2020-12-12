@@ -1,11 +1,6 @@
 import { enableDeleteButton } from './deleteButton.js';
+import { makeDeleteBtn } from './deleteButton.js';
 
-const makeDeleteBtn = () => {
-  const deleteBtn = document.createElement('i');
-  deleteBtn.classList.add('fas', 'fa-backspace', 'TodoItem-delete-btn');
-  
-  return deleteBtn;
-}
 
 const strikeThroughTitle = (todoItem) => {
   const todoTitle = todoItem.querySelector('.TodoItem-title');
@@ -20,7 +15,6 @@ const changeToCompletedMarker = (todoItem) => {
 
 const addDeleteBtn = (todoItem) => {
   const deleteBtn = makeDeleteBtn();
-  enableDeleteButton(deleteBtn);
   todoItem.appendChild(deleteBtn);
 }
 

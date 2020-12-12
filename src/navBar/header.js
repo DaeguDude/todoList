@@ -1,5 +1,5 @@
 import { get } from './get.js';
-import { showCategories } from './navBar.js';
+import { showCategories } from './navBarCategoryList.js';
 import { createListModal } from '../createListModal/CreateListModal.js';
 
 const hideBtn = (btn) => {
@@ -41,7 +41,10 @@ const enableAddCategoryBtn = () => {
   })
 }
 
+const enableAllCategoryBtns = () => {
+  enableFoldCategoryBtn();
+  enableUnfoldCategoryBtn();
+  enableAddCategoryBtn();
+}
 
-
-export { showFoldCategoryBtn,showAddCategoryBtn,
-  enableFoldCategoryBtn, enableUnfoldCategoryBtn, enableAddCategoryBtn }
+export { hideBtn, showBtn, enableAllCategoryBtns };

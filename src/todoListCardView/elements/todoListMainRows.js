@@ -1,27 +1,9 @@
-import { enableDeleteButton } from "../deleteButton";
-
-const makeEmptyCheckMarker = () => {
-  const emptyCheckMark = document.createElement('i');
-  emptyCheckMark.classList.add('far', 'fa-circle', 'check-marker');
-  emptyCheckMark.setAttribute('id', 'notCompletedMarker');
-
-  return emptyCheckMark;
-}
-
-const makeCheckedMarker = () => {
-  const checkedMarker = document.createElement('i');
-  checkedMarker.classList.add('far', 'fa-check-circle', 'check-marker');
-  checkedMarker.setAttribute('id', 'completedMarker');
-
-  return checkedMarker;
-}
-
-const makeDeleteBtn = () => {
-  const deleteBtn = document.createElement('i');
-  deleteBtn.classList.add('fas', 'fa-backspace', 'TodoItem-delete-btn');
-  
-  return deleteBtn;
-}
+import { makeDeleteBtn } from '../deleteButton.js';
+import { makeCheckedMarker, makeEmptyCheckMarker } from '../checkMarker.js';
+import { todoDetailsCardView } from '../../todoDetailsCardView/todoDetailsCardView';
+import { todoList } from '../../TodoList/todolist.js';
+import { get } from '../get.js';
+import { enableButtonsToBeSelected } from '../../todoDetailsCardView/priority.js';
 
 const makeTodoItemTitle = (title, completed) => {
   const todoItemTitle = document.createElement('div');
@@ -38,20 +20,28 @@ const makeTodoItemTitle = (title, completed) => {
 const makeTodoItemCheckBox = (completed) => {
   const todoItemCheckBox = document.createElement('div');
   todoItemCheckBox.classList.add('TodoItem-checkBox');
-  let marker;
+  let checkMarker;
 
   if (completed === true) {
-    marker = makeCheckedMarker();
+    checkMarker = makeCheckedMarker();
     
   } else {
-    marker = makeEmptyCheckMarker();
+    checkMarker = makeEmptyCheckMarker();
   }
 
-  todoItemCheckBox.appendChild(marker);
+  todoItemCheckBox.appendChild(checkMarker);
 
   return todoItemCheckBox;
 }
 
+const enableTodoItem = (todoItem) => {
+  todoItem.addEventListener('click', (event) => {
+    console.log(todoItem.querySelector('.check-marker'));
+    console.log(todoItem.querySelector('.TodoItem-delete-btn'));
+    // get delete button
+    // if event.target isn't either of them, show todo details
+  })
+}
 const makeTodoItem = (todo) => {
   const todoItem = document.createElement('div');
   todoItem.classList.add('TodoItem');
@@ -65,12 +55,14 @@ const makeTodoItem = (todo) => {
   if (completed) {
     todoItem.classList.add('TodoItem-checked');
     const deleteBtn = makeDeleteBtn();
-    enableDeleteButton(deleteBtn);
     todoItem.appendChild(deleteBtn);
   }
 
+  enableTodoItem(todoItem);
   return todoItem;
 }
+
+
 
 const makeTodoListMainRows = (todo, todoNumber) => {
   // We need to insert the row, todoitem is in the row
@@ -79,8 +71,8 @@ const makeTodoListMainRows = (todo, todoNumber) => {
   todoListMainRows.setAttribute('data-todo-number', todoNumber);
 
   todoListMainRows.appendChild(makeTodoItem(todo));
-    
   return todoListMainRows;
 }
 
 export { makeTodoListMainRows };
+

@@ -3,6 +3,7 @@ import { makeTodoListMain } from './todoListMain.js';
 import '../css/todoListCardView.css';
 
 import { todoList } from '../../TodoList/todolist.js';
+
 const makeTodoListCardView = (category) => {
   const todoListCardView = document.createElement('div');
   todoListCardView.classList.add('TodoList-CardView');

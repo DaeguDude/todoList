@@ -1,4 +1,5 @@
 import { makeLabelText } from './labelText.js';
+import { get } from '../getElements.js'
 
 const makeTodoinfoCategoryContainer = () => {
   const todoinfoContainerCategory = document.createElement('div');
@@ -12,7 +13,7 @@ const makeTodoinfoCategoryContainer = () => {
   const categorySelectionBtn = document.createElement('button');
   categorySelectionBtn.classList.add('todoinfo-category-selectBtn');
   // This needs to be changed in the future
-  categorySelectionBtn.innerText = "The Odin Project"
+  categorySelectionBtn.innerText = get.currentCategory();
 
   todoinfoContainerCategory.appendChild(labelText);
   todoinfoContainerCategory.appendChild(todoinfoCategory);

@@ -1,15 +1,17 @@
-import { add } from 'date-fns';
-import { makeNavBarCategoryList } from './categoryItem/navBarCategoryList.js';
+import { makeNavBarCategoryList } from './elements/makeNavBarCategoryList.js';
 import { get } from './get.js';
+import { todoList } from '../TodoList/todolist.js';
+import { navBar } from './navBar.js';
 
 
-const enableNavBarCategoryList = (categoryList) => {
-  categoryList.forEach(category => {
+const enableNavBarCategoryList = (navBarCategoryList) => {
+  const categoryItems = navBarCategoryList.children;
+  Array.from(categoryItems).forEach(category => {
     console.log(category);
-  })
+  });
 }
 
-const addNavBarCategoryList = () => {
+const addCategories = (navBarCategoryList) => {
   const navBarCategory = get.navBarCategory();
   navBarCategory.appendChild(navBarCategoryList);
 }

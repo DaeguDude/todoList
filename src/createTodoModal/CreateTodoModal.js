@@ -6,6 +6,8 @@ import { get } from './getElements.js';
 const openModal = () => {
   const container = get.container();
   container.appendChild(makeCreateTodoModal());
+
+  startInitialSetup();
 }
 
 const CreateTodoModal = () => {
@@ -13,7 +15,6 @@ const CreateTodoModal = () => {
   return {
     changeCategory,
     openModal,
-    startInitialSetup
   }
 }
 

@@ -23,7 +23,10 @@ const Get = () => {
     return document.querySelector('.container');
   }
 
-
+  const currentCategory = () => {
+    return document.querySelector('.TodoList-CardView-header').innerText;
+  }
+  
 
   return {
     addTodoBtn,
@@ -31,7 +34,8 @@ const Get = () => {
     descriptionTextarea,
     categoryBtn,
     modal,
-    container
+    container,
+    currentCategory
   }
 }
 

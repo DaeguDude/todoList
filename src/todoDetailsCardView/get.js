@@ -70,10 +70,14 @@ const Get = () => {
     return '';
   }
 
+  const cardViewContainer = () => {
+    return document.querySelector('.CardView-Container');
+  }
+
   return {
     importantBtn,highBtn,middleBtn,lowBtn, allPriorityBtns, todoTitle,
     todoPriority, todoDueDate, todoDescription, todoCreatedDate,
-    selectedPriorityBtn
+    selectedPriorityBtn, cardViewContainer
   }
 }
 

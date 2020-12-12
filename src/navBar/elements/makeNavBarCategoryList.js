@@ -16,6 +16,7 @@ const makeNavBarCategoryList = () => {
   const categories = todoList.getAllCategories();
   categories.forEach(category => {
     const categoryItem = makeCategoryItem(category);
+    enableCategoryItemToShowTodos(categoryItem);
     navBarCategoryList.appendChild(categoryItem);
   })
 

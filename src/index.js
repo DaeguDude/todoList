@@ -66,8 +66,6 @@ todoList.addTodo(myTodo2);
 const category = 'jiujitsu';
 todoListCardView.showTodoListCardView(category);
 
-todoListCardView.startInitialSetup();
-
 navBar.startInitialSetup();
 
 

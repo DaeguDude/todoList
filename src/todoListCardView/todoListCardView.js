@@ -1,12 +1,14 @@
 import { makeTodoListCardView } from './elements/makeTodoListCardView.js';
-import { startInitialSetup } from './startInitialSetup.js';
 import { isTodoListCardViewExist } from './isCompleted.js';
 import { get } from './get.js';
+import { addTodo } from './addTodo.js';
 
 const deleteTodoListCardView = () => {
   const todoListCardView = get.todoListCardView();
   todoListCardView.remove();
 }
+
+
 
 const showTodoListCardView = (category) => {
   if (isTodoListCardViewExist()) {
@@ -22,7 +24,7 @@ const showTodoListCardView = (category) => {
 const TodoListCardView = () => {
   
   return {
-    startInitialSetup,
+    addTodo,
     showTodoListCardView
   }
 }

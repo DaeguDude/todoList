@@ -1,6 +1,14 @@
 import { get } from './get.js';
 import { todoList } from '../TodoList/todolist.js';
 
+const makeDeleteBtn = () => {
+  const deleteBtn = document.createElement('i');
+  deleteBtn.classList.add('fas', 'fa-backspace', 'TodoItem-delete-btn');
+  
+  enableDeleteButton(deleteBtn);
+  return deleteBtn;
+}
+
 const getTodo = (deleteBtn) => {
   return get.todoListMainRowOfElement(deleteBtn)
 }
@@ -29,4 +37,4 @@ const enableDeleteButton = (deleteBtn) => {
   });
 }
 
-export { enableDeleteButton, updateDataTodoNumber };
+export { makeDeleteBtn, updateDataTodoNumber };

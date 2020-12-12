@@ -30,11 +30,12 @@ const enableCancelBtnToCloseModal = () => {
 }
 
 const enableWindowToCloseModal = () => {
-  window.addEventListener('click', (event) => {
+  window.addEventListener('click', function closeModalOrNot(event) {
     if (isOutsideModalContentClicked(event)) {
       closeModal();
+      window.removeEventListener('click', closeModalOrNot);
     }
-  }, { once: true });
+  });
 }
 
 const startInitialSetup = () => {

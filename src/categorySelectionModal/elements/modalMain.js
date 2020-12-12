@@ -1,4 +1,5 @@
 import { makeIndividualCategory } from './individualCategory.js';
+import { todoList } from '../../TodoList/todolist.js';
 
 // makes modal main
 const makeModalMain = () => {
@@ -7,7 +8,7 @@ const makeModalMain = () => {
 
 
   // Get categories from Todolist and add it to modal
-  const categoryList = ['The Odin Project', 'GYM', 'School', 'WORK', 'a', 'b', 'c'];
+  const categoryList = todoList.getAllCategories();
   categoryList.forEach(category => {
     const item = makeIndividualCategory(category);
     categorySelectionModalMain.appendChild(item);

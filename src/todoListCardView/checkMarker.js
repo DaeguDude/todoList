@@ -5,6 +5,24 @@ import { markCompletedDisplay } from './markCompleted.js';
 import { undoCompletedDisplay } from './undoCompleted.js';
 import { todoList } from '../TodoList/todolist.js';
 
+const makeEmptyCheckMarker = () => {
+  const emptyCheckMark = document.createElement('i');
+  emptyCheckMark.classList.add('far', 'fa-circle', 'check-marker');
+  emptyCheckMark.setAttribute('id', 'notCompletedMarker');
+
+  enableCheckMarker(emptyCheckMark);
+  return emptyCheckMark;
+}
+
+const makeCheckedMarker = () => {
+  const checkedMarker = document.createElement('i');
+  checkedMarker.classList.add('far', 'fa-check-circle', 'check-marker');
+  checkedMarker.setAttribute('id', 'completedMarker');
+
+  enableCheckMarker(checkedMarker);
+  return checkedMarker;
+}
+
 const markCompleted = (todo, todoDisplay) => {
   todo.markCompleted();
   markCompletedDisplay(todoDisplay);
@@ -31,15 +49,8 @@ const toggleCompleted = (event) => {
   markCompleted(todo, todoDisplay);
 }
 
-const enableCheckMarkers = () => {
-  const checkMarkers = get.allCheckMarkers();
-
-  checkMarkers.forEach(checkMarker => {
-    checkMarker.addEventListener('click', toggleCompleted);
-  })
+const enableCheckMarker = (checkMarker) => {
+  checkMarker.addEventListener('click', toggleCompleted);
 }
 
-
-
-
-export { enableCheckMarkers };
+export { makeEmptyCheckMarker, makeCheckedMarker };
