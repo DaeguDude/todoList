@@ -40,7 +40,10 @@ const enableTodoItem = (todoItem) => {
     const deleteBtn = todoItem.querySelector('.TodoItem-delete-btn');
 
     if (!(event.target === checkMarker || event.target === deleteBtn)) {
-      console.log('show todo details');
+      const todoNumber = get.todoNumber(todoItem);
+      const category = get.currentCategory();
+      const todo = todoList.getTodoByNumber(todoNumber, category);
+      todoDetailsCardView.showTodoDetails(todo, todoNumber);
     }
   })
 }

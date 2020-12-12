@@ -74,10 +74,23 @@ const Get = () => {
     return document.querySelector('.CardView-Container');
   }
 
+  const todoDetailsCardView = () => {
+    return document.querySelector('.TodoDetails-CardView');
+  }
+
+  const dataTodoNumber = () => {
+    return todoDetailsCardView().getAttribute('data-todo-number');
+  }
+
+  const currentCategory = () => {
+    return document.querySelector('.TodoList-CardView-header').innerText;
+  }
+
   return {
     importantBtn,highBtn,middleBtn,lowBtn, allPriorityBtns, todoTitle,
     todoPriority, todoDueDate, todoDescription, todoCreatedDate,
-    selectedPriorityBtn, cardViewContainer
+    selectedPriorityBtn, cardViewContainer, todoDetailsCardView, dataTodoNumber,
+    currentCategory
   }
 }
 

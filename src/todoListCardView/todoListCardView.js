@@ -8,8 +8,6 @@ const deleteTodoListCardView = () => {
   todoListCardView.remove();
 }
 
-
-
 const showTodoListCardView = (category) => {
   if (isTodoListCardViewExist()) {
     deleteTodoListCardView();
@@ -21,10 +19,15 @@ const showTodoListCardView = (category) => {
   cardViewContainer.appendChild(todoListCardView);
 }
 
+const changeTodoItemTitle = (title, todoNumber) => {
+  const todoListMainRows = document.querySelector('')
+}
+
 const TodoListCardView = () => {
   
   return {
     addTodo,
+    changeTodoItemTitle,
     showTodoListCardView
   }
 }

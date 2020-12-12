@@ -4,13 +4,6 @@ import { todoList } from '../TodoList/todolist.js';
 import { navBar } from './navBar.js';
 
 
-const enableNavBarCategoryList = (navBarCategoryList) => {
-  const categoryItems = navBarCategoryList.children;
-  Array.from(categoryItems).forEach(category => {
-    console.log(category);
-  });
-}
-
 const addCategories = (navBarCategoryList) => {
   const navBarCategory = get.navBarCategory();
   navBarCategory.appendChild(navBarCategoryList);
@@ -19,7 +12,6 @@ const addCategories = (navBarCategoryList) => {
 const showCategories = () => {
   const categories = todoList.getAllCategories();
   const navBarCategoryList = makeNavBarCategoryList(categories);
-  enableNavBarCategoryList(navBarCategoryList);
   
   addCategories(navBarCategoryList);
 }

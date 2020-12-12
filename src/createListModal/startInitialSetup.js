@@ -3,21 +3,13 @@ import { get } from './getElements.js';
 import { closeModal, isOutsideModalContentClicked } from './closeModal.js';
 import { isTitleTextareaEmpty } from './isTitleTextareaEmpty.js';
 
-const enableCreateBtnToAddCategory = () => {
+const enableCreateBtn = () => {
   const createBtn = get.createBtn();
 
   createBtn.addEventListener('click', () => {
     if (!isTitleTextareaEmpty()) {
-      addCategory();
-    }
-  })
-}
-
-const enableCreateBtnToCloseModal = () => {
-  const createBtn = get.createBtn();
-
-  createBtn.addEventListener('click', () => {
-    if (!isTitleTextareaEmpty()) {
+      const category = get.titleTextarea().value;
+      addCategory(category);
       closeModal();
     }
   })
@@ -41,8 +33,7 @@ const enableWindowToCloseModal = () => {
 const startInitialSetup = () => {
   enableCancelBtnToCloseModal();
   enableWindowToCloseModal();
-  enableCreateBtnToAddCategory();
-  enableCreateBtnToCloseModal();
+  enableCreateBtn();
 }
 
 export { startInitialSetup };

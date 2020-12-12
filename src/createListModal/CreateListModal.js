@@ -8,6 +8,8 @@ import { get } from './getElements.js';
 const openModal = () => {
   const container = get.container();
   container.appendChild(makeCreateListModal());
+
+  startInitialSetup();
 }
 
 const CreateListModal = () => {  
