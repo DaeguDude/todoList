@@ -36,10 +36,12 @@ const makeTodoItemCheckBox = (completed) => {
 
 const enableTodoItem = (todoItem) => {
   todoItem.addEventListener('click', (event) => {
-    console.log(todoItem.querySelector('.check-marker'));
-    console.log(todoItem.querySelector('.TodoItem-delete-btn'));
-    // get delete button
-    // if event.target isn't either of them, show todo details
+    const checkMarker = todoItem.querySelector('.check-marker');
+    const deleteBtn = todoItem.querySelector('.TodoItem-delete-btn');
+
+    if (!(event.target === checkMarker || event.target === deleteBtn)) {
+      console.log('show todo details');
+    }
   })
 }
 const makeTodoItem = (todo) => {
