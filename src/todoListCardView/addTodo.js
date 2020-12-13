@@ -1,4 +1,4 @@
-import { updateDataTodoNumber } from './deleteButton.js';
+import { updateDataTodoNumber } from './deleteButton/deleteButton.js';
 import { makeTodoListMainRows } from './elements/todoListMainRows.js';
 import { get } from './get.js';
 

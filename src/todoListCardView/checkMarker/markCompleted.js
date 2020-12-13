@@ -1,6 +1,4 @@
-import { enableDeleteButton } from './deleteButton.js';
-import { makeDeleteBtn } from './deleteButton.js';
-
+import { makeDeleteBtn } from '../deleteButton/deleteButton.js';
 
 const strikeThroughTitle = (todoItem) => {
   const todoTitle = todoItem.querySelector('.TodoItem-title');

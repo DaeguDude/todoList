@@ -1,7 +1,14 @@
 import { makeTodoListCardView } from './elements/makeTodoListCardView.js';
-import { isTodoListCardViewExist } from './isCompleted.js';
 import { get } from './get.js';
 import { addTodo } from './addTodo.js';
+
+const isTodoListCardViewExist = () => {
+  if (get.todoListCardView() != null) {
+    return true;
+  }
+
+  return false;
+}
 
 const deleteTodoListCardView = () => {
   const todoListCardView = get.todoListCardView();

@@ -1,17 +1,7 @@
-import { makeLabelText } from './labelText.js';
-import { getToday } from '../../../../date/getToday.js';
-
-const isEmpty = (str) => {
-  if (str === '') {
-    return true;
-  }
-
-  return false;
-}
+import { makeLabelText } from '../labelText.js';
 
 const isDueDateSet = (dueDate) => {
-  
-  if(isEmpty(dueDate)) {
+  if (dueDate === '') {
     return false;
   }
 
@@ -27,7 +17,6 @@ const makeDateInput = (dueDate) => {
   if (isDueDateSet(dueDate)) {
     dateInput.setAttribute('value', dueDate);
   } 
-  // dateInput.setAttribute('min', '2020-11-10');
 
   return dateInput;
 }
@@ -49,7 +38,6 @@ const makeDueDateRow = (dueDate) => {
   const labelText = makeLabelText('DUE DATE');
   const dueDateInputBox = makeDueDateInputBox(dueDate);
 
-  // Appending Child
   dueDateRow.appendChild(labelText);
   dueDateRow.appendChild(dueDateInputBox);
   

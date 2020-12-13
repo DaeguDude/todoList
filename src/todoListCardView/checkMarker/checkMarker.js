@@ -1,9 +1,15 @@
-import { get } from './get.js';
-import { todoListCardView } from './todoListCardView.js';
-import { isCompletedMarker } from './isCompleted.js'
+import { get } from '../get.js';
 import { markCompletedDisplay } from './markCompleted.js';
 import { undoCompletedDisplay } from './undoCompleted.js';
-import { todoList } from '../TodoList/todolist.js';
+import { todoList } from '../../TodoList/todolist.js';
+
+const isCompletedMarker = (checkMarker) => {
+  if (checkMarker.id === 'completedMarker') {
+    return true;
+  }
+  
+  return false;
+}
 
 const makeEmptyCheckMarker = () => {
   const emptyCheckMark = document.createElement('i');

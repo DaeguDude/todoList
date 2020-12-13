@@ -1,4 +1,4 @@
-import { makeLabelText } from './labelText.js';
+import { makeLabelText } from '../labelText.js';
 
 const makeCreatedDateRow = (date) => {
   const createdDateRow = document.createElement('div');

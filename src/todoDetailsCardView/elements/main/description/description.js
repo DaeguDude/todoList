@@ -1,5 +1,4 @@
-import { makeLabelText } from './labelText.js';
-
+import { makeLabelText } from '../labelText.js';
 
 const makeDescriptionRow = (description) => {
   const descriptionRow = document.createElement('div');

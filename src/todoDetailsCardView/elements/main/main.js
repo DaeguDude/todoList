@@ -1,8 +1,8 @@
-import { makeTitleRow } from '../main/elements/titleRow.js'
-import { makeTagRow } from '../main/elements/TagRow.js';
-import { makeDueDateRow } from '../main/elements/DueDateRow.js';
-import { makeDescriptionRow } from '../main/elements/descriptionRow.js';
-import { makeCreatedDateRow } from '../main/elements/createdDateRow.js';
+import { makeTitleRow } from './title/title.js';
+import { makeTagRow } from './tag/tag.js';
+import { makeDueDateRow } from './dueDate/dueDate.js';
+import { makeDescriptionRow } from './description/description.js';
+import { makeCreatedDateRow } from './createdDate/createdDate.js';
 
 
 const makeTodoEditMain = (todo) => {

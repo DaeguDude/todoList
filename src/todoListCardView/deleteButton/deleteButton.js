@@ -1,5 +1,5 @@
-import { get } from './get.js';
-import { todoList } from '../TodoList/todolist.js';
+import { get } from '../get.js';
+import { todoList } from '../../TodoList/todolist.js';
 
 const makeDeleteBtn = () => {
   const deleteBtn = document.createElement('i');
