@@ -12,9 +12,15 @@ const isCardViewExist = () => {
   return true;
 }
 
-const removeTodoDetailsCardView = () => {
-  saveTodoDetails();
-  
+const removeTodoDetailsCardView = (save) => {
+  if (!isCardViewExist()) {
+    return;
+  }
+
+  if (save != false) {
+    saveTodoDetails();
+  }
+
   const todoDetailsCardView = get.todoDetailsCardView();
   todoDetailsCardView.remove();
 }
@@ -22,10 +28,10 @@ const removeTodoDetailsCardView = () => {
 const showTodoDetails = (todo, todoNumber) => {
   
   if(isCardViewExist()) {
-    removeTodoDetailsCardView();
+    removeTodoDetailsCardView(true);
   }
 
-  const container = get.cardViewContainer()
+  const container = get.cardViewContainer();
   const todoDetailsCardView = makeTodoDetailsCardView(todo, todoNumber);
   container.appendChild(todoDetailsCardView);
 }

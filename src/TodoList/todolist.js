@@ -26,7 +26,6 @@ const TodoList = () => {
   const deleteTodoByNumber = (todoNumber, category) => {
     const todos = getTodosByCategory(category);
     todos.splice(todoNumber, 1);
-    console.log(todos);
   }
 
   const deleteCategory = (category) => {
@@ -58,42 +57,40 @@ const TodoList = () => {
     return categories;
   }
 
-  const sortTodosByDueDate = (todos) => {
-    todos.sort((todoOne, todoTwo) => {
-      const todoOneDueDate = todoOne.getDueDate();
-      const todoTwoDueDate = todoTwo.getDueDate();
+  // const sortTodosByDueDate = (todos) => {
+  //   todos.sort((todoOne, todoTwo) => {
+  //     const todoOneDueDate = todoOne.getDueDate();
+  //     const todoTwoDueDate = todoTwo.getDueDate();
       
-      return Number(todoOneDueDate) - Number(todoTwoDueDate);
-    });
-  }
+  //     return Number(todoOneDueDate) - Number(todoTwoDueDate);
+  //   });
+  // }
 
-  const sortTodosByPriority = (todos) => {
-    todos.sort(function comparePriority(todoOne, todoTwo) {
-      let todoOnePriority = todoOne.getPriority();
-      let todoTwoPriority = todoTwo.getPriority();
+  // const sortTodosByPriority = (todos) => {
+  //   todos.sort(function comparePriority(todoOne, todoTwo) {
+  //     let todoOnePriority = todoOne.getPriority();
+  //     let todoTwoPriority = todoTwo.getPriority();
 
-      todoOnePriority = getPriorityAsNumber(todoOnePriority);
-      todoTwoPriority = getPriorityAsNumber(todoTwoPriority);
+  //     todoOnePriority = getPriorityAsNumber(todoOnePriority);
+  //     todoTwoPriority = getPriorityAsNumber(todoTwoPriority);
       
-      return todoOnePriority - todoTwoPriority;
-    });
-  }
+  //     return todoOnePriority - todoTwoPriority;
+  //   });
+  // }
 
-  const sortTodosByCreatedDate = (todos) => {
-    todos.sort((todoOne, todoTwo) => {
-      const todoOneCreatedDate = todoOne.getCreatedDate();
-      const todoTwoCreatedDate = todoTwo.getCreatedDate();
+  // const sortTodosByCreatedDate = (todos) => {
+  //   todos.sort((todoOne, todoTwo) => {
+  //     const todoOneCreatedDate = todoOne.getCreatedDate();
+  //     const todoTwoCreatedDate = todoTwo.getCreatedDate();
       
-      return Number(todoOneCreatedDate) - Number(todoTwoCreatedDate);
-    });
-  }
+  //     return Number(todoOneCreatedDate) - Number(todoTwoCreatedDate);
+  //   });
+  // }
 
 
   return {
-    _todos,
     addTodo, addNewCategory, deleteTodoByNumber, deleteCategory,
     getTodosByCategory, getAllTodos, getAllCategories, getTodoByNumber,
-    sortTodosByDueDate, sortTodosByCreatedDate, sortTodosByPriority
   }
 }
 

@@ -28,9 +28,13 @@ const Todo = (title, description, category) => {
     _dueDate = dueDate;
   }
 
-  // const setCreatedDate = (createdDate) => {
-  //   _createdDate = createdDate;
-  // }
+  const setCreatedDate = (createdDate) => {
+    _createdDate = createdDate;
+  }
+
+  const setCompleted = (completed) => {
+    _completed = completed;
+  }
 
   const setPriority = (priority) => {
     _priority = priority;
@@ -64,6 +68,7 @@ const Todo = (title, description, category) => {
     return _priority;
   }
 
+
   // ------------------------------------------
   // is(boolean)
   // ------------------------------------------
@@ -84,7 +89,7 @@ const Todo = (title, description, category) => {
 
   
   return {
-    setTitle, setDescription, setCategory, setDueDate, setPriority,
+    setTitle, setDescription, setCategory, setDueDate, setPriority, setCreatedDate, setCompleted,
     getTitle, getDescription, getCategory, getCreatedDate, getPriority, getDueDate,
     isCompleted, markCompleted, undoCompleted
   }

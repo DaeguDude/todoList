@@ -27,7 +27,10 @@ const showTodoListCardView = (category) => {
 }
 
 const changeTodoItemTitle = (title, todoNumber) => {
-  const todoListMainRows = document.querySelector('')
+  const allTodoListMainRows = get.allTodoListMainRows();
+  const todoListMainRows = allTodoListMainRows[todoNumber];
+  const todoItemTitle = todoListMainRows.querySelector('.TodoItem-title');
+  todoItemTitle.innerText = title;
 }
 
 const TodoListCardView = () => {

@@ -25,11 +25,8 @@ const isPriorityAlreadySet = () => {
 const selectPriorityBtn = (event) => {
   
   const clickedBtn = event.target;
-  console.log(clickedBtn.innerText);
-
   // If it passes this line, it means priority is set
   if (!isPriorityAlreadySet()) {
-    console.log('set?');
     return clickedBtn.classList.toggle(clickedBtn.innerText + '-selected');
   }
 

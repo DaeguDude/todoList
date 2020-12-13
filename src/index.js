@@ -1,17 +1,18 @@
-import { createListModal } from './createListModal/CreateListModal.js';
-import { createTodoModal } from './createTodoModal/CreateTodoModal.js';
-import { categorySelectionModal } from './categorySelectionModal/CategorySelectionModal.js';
-import { todoDetailsCardView } from './todoDetailsCardView/todoDetailsCardView.js';
 import { todoListCardView } from './todoListCardView/todoListCardView.js';
 import { navBar } from './navBar/navBar.js';
-
-import { Todo } from './Todo/todo.js';
 import { todoList } from './TodoList/todolist.js';
+import { storage } from './localStorage/storage.js';
 
-import { getToday } from './date/getToday.js';
+const todos = storage.getAllTodos();
+todos.forEach(todo => {
+  todoList.addTodo(todo);
+})
 
 navBar.startInitialSetup();
 todoListCardView.showTodoListCardView();
+
+
+
 
 
 
