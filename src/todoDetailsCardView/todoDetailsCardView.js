@@ -2,6 +2,7 @@ import { makeTodoDetailsCardView } from './elements/makeTodoDetailsCardView.js';
 import { get } from './get.js';
 import { saveTodoDetails } from './saveTodoDetails.js';
 import { todoListCardView } from '../todoListCardView/todoListCardView.js';
+import { storage } from '../localStorage/storage.js';
 
 const isCardViewExist = () => {
   const todoDetailsCardView = get.todoDetailsCardView()
@@ -19,6 +20,7 @@ const removeTodoDetailsCardView = (save) => {
 
   if (save != false) {
     saveTodoDetails();
+    storage.updateChange();
   }
 
   const todoDetailsCardView = get.todoDetailsCardView();

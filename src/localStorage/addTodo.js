@@ -1,8 +1,7 @@
 import { Todo } from '../Todo/todo.js';
 
-
-
 const addTodo = (todo) => {
+  console.log(todo);
   const localStorageTodo = {
     title: todo.getTitle(),
     description: todo.getDescription(),
@@ -14,7 +13,6 @@ const addTodo = (todo) => {
   }  
 
   const numberOfTodos = getAllTodos().length;
-  console.log(numberOfTodos);
   localStorage.setItem(numberOfTodos, JSON.stringify(localStorageTodo));
 }
 
@@ -30,6 +28,7 @@ const convertTodo = (localStorageTodo) => {
   const completed = localStorageTodo.completed;
 
   const todo = Todo(title, description, category);
+  
   todo.setDueDate(dueDate);
   todo.setCreatedDate(createdDate);
   todo.setPriority(priority);
@@ -39,7 +38,7 @@ const convertTodo = (localStorageTodo) => {
 }
 
 const getAllTodos = () => {
-  const numberOfTodos = Object.keys(localStorage)
+  const numberOfTodos = Object.keys(localStorage);
   const todos = [];
   numberOfTodos.forEach(numTodo => {
     const localStorageTodo = localStorage.getItem(numTodo);
