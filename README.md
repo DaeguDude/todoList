@@ -5,7 +5,7 @@ TodoList project that is a part of open source web development curriculum The Od
 ## DESCRIPTION
 
 You can make a todo of your own and keep up with todos that you need to complete.
-Here is the [live demo] for trial.
+Here is the [live demo](https://daegudude.github.io/todoList/) for trial.
 
 ![todoList preview](./todoList.png)
 
@@ -37,7 +37,6 @@ const closeModal = () => {
 }
 
 // 'From Create List Modal'
-// close modal
 const closeModal = () => {
   const modal = get.modal();
   modal.remove();
@@ -46,7 +45,7 @@ const closeModal = () => {
 
 All these things have same function declared on its own. But it's doing exactly same thing.
 
-- **How to separate the code(module)**: I had such a big factory function object that was doing a lot of things in my first pace of the project, which led to the [code](https://github.com/DaeguDude/TOP-todolist/blob/implementing-Functionality/src/Display/display.js) that wasn't managable anymore. I had to complete restart the project because code that I wrote wasn't understandable anymore. I have taken an advice from TOP board member to separate by component, which a lot of times means to separate UI. So here's my components so far.
+- **How to separate the code(module)**: I break down the todoList project into separate components so it's more manageable. And here are the list of my components. 
 
 Display:
 
@@ -56,10 +55,8 @@ Application Logic:
 
 `Todo`, `TodoList`. 
 
-And let's see the problem I have. In the `todoListCardView`, which lists the todos that someone has created, it has checkMarker that will set todo as completed. So checkMarker alone needs to have a lot of functions attached.
-I'm curious if I have to make this component as well? I am not too sure how I can separate it.
-
-And what about the function `addTodo` of `todoListCardView`? Where does it need to live in the codebase?
+What I am understanding at this point is, break it into the components and put functions that belong to it. 
+For example, I have `todoListCardView` component, which will list all todolist on the display. And it has a lot of functions inside, but it's just not visible. How do I organise these functions? With what rules do I separate them?
 
 ## Future Plan(Refactoring)
 
