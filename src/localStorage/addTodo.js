@@ -1,7 +1,6 @@
 import { Todo } from '../Todo/todo.js';
 
 const addTodo = (todo) => {
-  console.log(todo);
   const localStorageTodo = {
     title: todo.getTitle(),
     description: todo.getDescription(),
