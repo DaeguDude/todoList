@@ -56,7 +56,10 @@ Application Logic:
 `Todo`, `TodoList`. 
 
 What I am understanding at this point is, break it into the components and put functions that belong to it. 
-For example, I have `todoListCardView` component, which will list all todolist on the display. And it has a lot of functions inside, but it's just not visible. How do I organise these functions? With what rules do I separate them?
+For example, I have `todoListCardView` component, which will list all todolist on the display. And it has a lot of functions inside, it's just not visible. 
+
+How do I organise these functions that make `todoListCardView` component? 
+If my component has a lot of features, more functions it will have. And I have a hard time how to separate these.
 
 ## Future Plan(Refactoring)
 
