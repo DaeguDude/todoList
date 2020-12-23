@@ -1,29 +1,31 @@
-import { makeDeleteBtn } from '../deleteButton/deleteButton.js';
-import { makeCheckedMarker, makeEmptyCheckMarker } from '../checkMarker/checkMarker.js';
-import { todoDetailsCardView } from '../../todoDetailsCardView/todoDetailsCardView.js';
-import { todoList } from '../../TodoList/todolist.js';
-import { get } from '../get.js';
+import { makeDeleteBtn } from "../deleteButton/deleteButton.js";
+import {
+  makeCheckedMarker,
+  makeEmptyCheckMarker,
+} from "../checkMarker/checkMarker.js";
+import { todoDetailsCardView } from "../../todoDetailsCardView/todoDetailsCardView.js";
+import { todoList } from "../../TodoList/todolist.js";
+import { get } from "../get.js";
 
 const makeTodoItemTitle = (title, completed) => {
-  const todoItemTitle = document.createElement('div');
-  todoItemTitle.classList.add('TodoItem-title');
+  const todoItemTitle = document.createElement("div");
+  todoItemTitle.classList.add("TodoItem-title");
   todoItemTitle.innerText = title;
 
   if (completed) {
-    todoItemTitle.classList.add('TodoItem-title-checked');
+    todoItemTitle.classList.add("TodoItem-title-checked");
   }
 
   return todoItemTitle;
-}
+};
 
 const makeTodoItemCheckBox = (completed) => {
-  const todoItemCheckBox = document.createElement('div');
-  todoItemCheckBox.classList.add('TodoItem-checkBox');
+  const todoItemCheckBox = document.createElement("div");
+  todoItemCheckBox.classList.add("TodoItem-checkBox");
   let checkMarker;
 
   if (completed === true) {
     checkMarker = makeCheckedMarker();
-    
   } else {
     checkMarker = makeEmptyCheckMarker();
   }
@@ -31,24 +33,24 @@ const makeTodoItemCheckBox = (completed) => {
   todoItemCheckBox.appendChild(checkMarker);
 
   return todoItemCheckBox;
-}
+};
 
 const enableTodoItem = (todoItem) => {
-  todoItem.addEventListener('click', (event) => {
-    const checkMarker = todoItem.querySelector('.check-marker');
-    const deleteBtn = todoItem.querySelector('.TodoItem-delete-btn');
+  todoItem.addEventListener("click", (event) => {
+    const checkMarker = todoItem.querySelector(".check-marker");
+    const deleteBtn = todoItem.querySelector(".TodoItem-delete-btn");
 
     if (!(event.target === checkMarker || event.target === deleteBtn)) {
       const todoNumber = get.todoNumber(todoItem);
       const category = get.currentCategory();
-      const todo = todoList.getTodoByNumber(todoNumber, category);
+      const todo = todoList.getTodoByIndex(todoNumber, category);
       todoDetailsCardView.showTodoDetails(todo, todoNumber);
     }
-  })
-}
+  });
+};
 const makeTodoItem = (todo) => {
-  const todoItem = document.createElement('div');
-  todoItem.classList.add('TodoItem');
+  const todoItem = document.createElement("div");
+  todoItem.classList.add("TodoItem");
 
   const title = todo.getTitle();
   const completed = todo.isCompleted();
@@ -57,13 +59,13 @@ const makeTodoItem = (todo) => {
   todoItem.appendChild(makeTodoItemTitle(title, completed));
 
   if (completed) {
-    todoItem.classList.add('TodoItem-checked');
+    todoItem.classList.add("TodoItem-checked");
     const deleteBtn = makeDeleteBtn();
     todoItem.appendChild(deleteBtn);
   }
 
   enableTodoItem(todoItem);
   return todoItem;
-}
+};
 
 export { makeTodoItem };
