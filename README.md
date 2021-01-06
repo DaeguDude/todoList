@@ -17,6 +17,10 @@ Here is the [live demo](https://daegudude.github.io/todoList/) for trial.
 - Npm
 - localStorage
 
+## VERSION
+
+- Version1
+
 ## Things to improve
 
 - **Logical Thinking**: When problem occurs, I tend to just make my way through it, not without thinking about how to solve problems step by step.
