@@ -12,9 +12,4 @@ const isOutsideModalContentClicked = (event) => {
   return false;
 };
 
-const closeModal = () => {
-  const modal = get.modal();
-  modal.remove();
-};
-
-export { closeModal, isOutsideModalContentClicked };
+export { isOutsideModalContentClicked };

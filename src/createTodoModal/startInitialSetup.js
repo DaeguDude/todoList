@@ -1,40 +1,40 @@
-import { addTodo } from './addTodo.js';
-import { get } from './getElements.js';
-import { closeModal, isOutsideModalContentClicked } from './closeModal.js';
-import { isTitleTextareaEmpty } from './isTitleTextareaEmpty.js';
-import { categorySelectionModal } from '../categorySelectionModal/CategorySelectionModal.js';
+import { addTodo } from "./addTodo.js";
+import { get } from "./getElements.js";
+import { isOutsideModalContentClicked } from "./closeModal.js";
+import { closeModal } from "../helper/modal";
+import { isTitleTextareaEmpty } from "./isTitleTextareaEmpty.js";
+import { categorySelectionModal } from "../categorySelectionModal/CategorySelectionModal.js";
 
 const enableAddTodoBtn = () => {
   const addTodoBtn = get.addTodoBtn();
-  addTodoBtn.addEventListener('click', () => {
+  addTodoBtn.addEventListener("click", () => {
     if (!isTitleTextareaEmpty()) {
       addTodo();
-      closeModal();
+      closeModal("createTodo");
     }
-  })
-}
+  });
+};
 
 // Category Selection Btn enable
 const enableCategoryBtn = () => {
   const categoryBtn = get.categoryBtn();
 
-  categoryBtn.addEventListener('click', categorySelectionModal.openModal);
-}
+  categoryBtn.addEventListener("click", categorySelectionModal.openModal);
+};
 
 const enableWindowToCloseModal = () => {
-  window.addEventListener('click', function closeModalOrNot(event) {
+  window.addEventListener("click", function closeModalOrNot(event) {
     if (isOutsideModalContentClicked(event)) {
-      closeModal();
-      window.removeEventListener('click', closeModalOrNot);
+      closeModal("createTodo");
+      window.removeEventListener("click", closeModalOrNot);
     }
   });
-}
+};
 
 const startInitialSetup = () => {
   enableAddTodoBtn();
   enableCategoryBtn();
   enableWindowToCloseModal();
-}
-
+};
 
 export { startInitialSetup };
