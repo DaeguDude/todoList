@@ -1,24 +1,26 @@
 import "../css/createListModal.css";
 
-import { makeButtonContainer } from "./buttonContainer.js";
-import { makeContentContainer } from "./contentContainer.js";
-
 const makeCreateListModal = () => {
   const modal = document.createElement("div");
   modal.classList.add("modal");
   modal.setAttribute("id", "createList");
 
-  const createListModal = document.createElement("div");
-  createListModal.classList.add("createList-modal");
-  createListModal.classList.add("modal-content");
+  modal.innerHTML = `
+    <div class="createList-modal modal-content">
+      <div class="createList-modal-content-container">
+        <div class="createList-modal-LabelText-container">
+          <div class="Label__Text">NAME THIS LIST</div>
+        </div>
+        <div class="createList-modal-textField-container">
+          <textarea rows="1" class="textField textField-title"></textarea>
+        </div>
+      </div>
 
-  const buttonContainer = makeButtonContainer();
-  const contentContainer = makeContentContainer();
-
-  createListModal.appendChild(contentContainer);
-  createListModal.appendChild(buttonContainer);
-
-  modal.appendChild(createListModal);
+      <div class="createList-modal-button-container">
+        <button data-btn="cancel" class="createList-buttons">Cancel</button>
+        <button data-btn="create" class="createList-buttons">Create</button>
+      </div>
+    </div>`;
 
   return modal;
 };
